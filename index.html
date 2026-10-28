@@ -1,0 +1,1512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Smart Travel Companion</title>
+
+  <!-- Phosphor Icons -->
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <div class="device-frame">
+
+    <!-- Notch -->
+    <div class="notch"></div>
+
+    <!-- Status Bar -->
+    <div class="status-bar">
+      <span>9:41</span>
+
+      <div class="status-indicators">
+        <i class="ph-bold ph-chart-bar"></i>
+        <i class="ph-bold ph-wifi-high"></i>
+        <i class="ph-bold ph-battery-full"></i>
+      </div>
+    </div>
+
+
+    <!-- ================= LOGIN SCREEN ================= -->
+
+    <section id="loginScreen" class="view-panel active">
+
+      <div class="login-wrapper">
+
+        <div class="brand-shield-logo">
+
+          <svg viewBox="0 0 100 100" fill="none">
+
+            <defs>
+
+              <linearGradient id="shieldFill"
+                x1="15"
+                y1="10"
+                x2="85"
+                y2="90">
+
+                <stop offset="0%" stop-color="#0284c7" />
+                <stop offset="100%" stop-color="#0d9488" />
+
+              </linearGradient>
+
+              <linearGradient id="goldBorder"
+                x1="0"
+                y1="0"
+                x2="100"
+                y2="100">
+
+                <stop offset="0%" stop-color="#f59e0b" />
+                <stop offset="100%" stop-color="#b45309" />
+
+              </linearGradient>
+
+            </defs>
+
+            <path
+              d="M50 8L82 22V50C82 70 50 92 50 92C50 92 18 70 18 50V22L50 8Z"
+              fill="url(#shieldFill)"
+              stroke="#ffffff"
+              stroke-width="2.5"
+            />
+
+            <circle
+              cx="50"
+              cy="48"
+              r="23"
+              fill="#082f49"
+              stroke="url(#goldBorder)"
+              stroke-width="2.5"
+            />
+
+            <polygon
+              points="50,29 54,48 50,44 46,48"
+              fill="#ef4444"
+            />
+
+            <polygon
+              points="50,67 54,48 50,52 46,48"
+              fill="#ffffff"
+            />
+
+            <polygon
+              points="69,48 50,52 54,48 50,44"
+              fill="#cbd5e1"
+            />
+
+            <polygon
+              points="31,48 50,52 46,48 50,44"
+              fill="#cbd5e1"
+            />
+
+            <circle
+              cx="50"
+              cy="48"
+              r="3.5"
+              fill="#f59e0b"
+            />
+
+          </svg>
+
+        </div>
+
+
+        <h1 class="auth-title">
+          Smart Travel<br />
+          Companion
+        </h1>
+
+        <p class="auth-tagline">
+          Travel smaller. Travel safer.
+        </p>
+
+
+        <!-- Login Form -->
+
+        <form
+          class="auth-form"
+          onsubmit="handleLogin(event)"
+        >
+
+          <div class="text-input-field">
+
+            <i class="ph-bold ph-envelope"></i>
+
+            <input
+              type="email"
+              placeholder="Email address"
+              value="explorer@sih.gov.in"
+              required
+            />
+
+          </div>
+
+
+          <div class="text-input-field">
+
+            <i class="ph-bold ph-lock-key"></i>
+
+            <input
+              type="password"
+              placeholder="Password"
+              value="password123"
+              required
+            />
+
+          </div>
+
+
+          <button
+            type="submit"
+            class="btn-auth-submit"
+          >
+
+            Log in
+
+            <i class="ph-bold ph-arrow-right"></i>
+
+          </button>
+
+        </form>
+
+
+        <!-- Google Login -->
+
+        <button
+          type="button"
+          class="btn-google-login"
+          onclick="openHome()"
+        >
+
+          <svg width="18" height="18" viewBox="0 0 48 48">
+
+            <path
+              fill="#EA4335"
+              d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"
+            />
+
+            <path
+              fill="#4285F4"
+              d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"
+            />
+
+            <path
+              fill="#FBBC05"
+              d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"
+            />
+
+            <path
+              fill="#34A853"
+              d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"
+            />
+
+          </svg>
+
+          Connect with Google
+
+        </button>
+
+
+        <a
+          href="javascript:void(0)"
+          class="link-forgot"
+        >
+          Forgot password?
+        </a>
+
+
+        <p class="text-signup">
+
+          New here?
+
+          <a
+            href="javascript:void(0)"
+            onclick="openHome()"
+          >
+            Create an account
+          </a>
+
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= DASHBOARD ================= -->
+
+    <section id="dashboardScreen" class="view-panel">
+
+      <!-- Top Navigation -->
+
+      <header class="top-nav-bar">
+
+        <div class="nav-left">
+
+          <button
+            class="sos-pill-btn"
+            onclick="alert('SOS Alert triggered! Alerting highway patrol & live coordinates sent.')"
+          >
+
+            <i class="ph-bold ph-shield-plus"></i>
+
+            SOS
+
+          </button>
+
+
+          <div class="logo-inline-wrap">
+
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 100 100"
+              fill="none"
+            >
+
+              <path
+                d="M50 8L82 22V50C82 70 50 92 50 92C50 92 18 70 18 50V22L50 8Z"
+                fill="#0d9488"
+              />
+
+              <circle
+                cx="50"
+                cy="48"
+                r="22"
+                fill="#082f49"
+                stroke="#f59e0b"
+                stroke-width="3"
+              />
+
+              <polygon
+                points="50,30 53,48 50,45 47,48"
+                fill="#ef4444"
+              />
+
+              <polygon
+                points="50,66 53,48 50,51 47,48"
+                fill="#ffffff"
+              />
+
+            </svg>
+
+
+            <div class="logo-inline-text">
+
+              Smart Travel<br />
+
+              Companion
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="nav-right">
+
+          <div class="action-icon-circle">
+
+            <i class="ph-bold ph-bell"></i>
+
+            <span class="notification-indicator"></span>
+
+          </div>
+
+
+          <!-- Destination Search -->
+          <button
+            class="action-icon-circle destination-search-btn"
+            type="button"
+            aria-label="Search destination"
+            onclick="toggleDestinationSearch()"
+          >
+            <i class="ph-bold ph-magnifying-glass"></i>
+          </button>
+
+        </div>
+
+      </header>
+
+
+      <!-- Destination Search Panel -->
+      <div id="destinationSearchPanel" class="destination-search-panel">
+        <div class="destination-search-box">
+          <i class="ph-bold ph-magnifying-glass"></i>
+          <input
+            type="text"
+            id="destinationSearchInput"
+            placeholder="Where do you want to go?"
+            autocomplete="off"
+            oninput="searchDestinations()"
+            onkeydown="handleDestinationSearchKey(event)"
+          />
+          <button
+            type="button"
+            class="destination-search-close"
+            aria-label="Close destination search"
+            onclick="closeDestinationSearch()"
+          >
+            <i class="ph-bold ph-x"></i>
+          </button>
+        </div>
+        <div id="destinationSearchResults" class="destination-search-results">
+          <div class="destination-search-hint">
+            <i class="ph-fill ph-map-pin"></i>
+            <span>Search for a city, destination or tourist place</span>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- Live Location -->
+
+      <div class="live-location-row">
+
+        <i class="ph-fill ph-map-pin"></i>
+
+        <span>
+          Share Live Location
+        </span>
+
+        <button
+          class="toggle-pill"
+          id="locationSwitch"
+          onclick="toggleLocationSwitch()"
+        >
+
+          <span id="switchStatus">
+            ON
+          </span>
+
+          <span class="switch-ball"></span>
+
+        </button>
+
+      </div>
+
+
+      <!-- Hero -->
+
+      <div class="main-hero-card">
+
+        <h2>
+          Your safe journey<br />
+          starts here
+        </h2>
+
+        <p>
+          Your AI-powered travel companion
+        </p>
+
+        <button
+          class="btn-hero-cta"
+          onclick="alert('Launching AI Safe Planner')"
+        >
+
+          <i class="ph-fill ph-sparkle"></i>
+
+          Plan my safe trip
+
+          <i class="ph-bold ph-microphone"></i>
+
+        </button>
+
+      </div>
+
+
+      <!-- ================= METRICS ================= -->
+
+      <div class="metrics-container">
+
+        <!-- Weather -->
+
+        <div class="metric-card">
+
+          <i class="ph-fill ph-cloud-rain weather-icon-accent"></i>
+
+          <div>
+
+            <h3>
+              28°C
+            </h3>
+
+            <p>
+              Light rain 6 PM
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <!-- NEW BOOKINGS CARD -->
+
+        <div
+          class="metric-card booking-metric-card"
+          onclick="openBookings()"
+        >
+
+          <div class="booking-icon-box">
+
+            <i class="ph-fill ph-ticket"></i>
+
+          </div>
+
+          <div class="booking-metric-content">
+
+            <h3>
+              Bookings
+            </h3>
+
+            <p>
+              Train • Flight • Hotel
+            </p>
+
+          </div>
+
+          <i class="ph-bold ph-caret-right booking-arrow"></i>
+
+        </div>
+
+      </div>
+
+
+      <!-- Quick Actions -->
+
+      <div class="section-label">
+        QUICK ACTIONS
+      </div>
+
+
+      <div class="interactive-hub-grid">
+
+
+        <div class="modular-actions-stack">
+
+
+          <!-- AI Assistant -->
+
+          <div
+            class="action-card-item"
+            onclick="alert('AI Assistant initiated.')"
+          >
+
+            <div class="action-card-left">
+
+              <div class="icon-avatar avatar-purple">
+
+                <i class="ph-fill ph-robot"></i>
+
+              </div>
+
+
+              <div class="action-card-text">
+
+                <h4>
+                  AI Assistant
+                </h4>
+
+                <p>
+                  Your smart travel guide
+                </p>
+
+              </div>
+
+            </div>
+
+
+            <i class="ph-bold ph-caret-right chevron-icon"></i>
+
+          </div>
+
+
+          <!-- Discover -->
+
+          <div
+            class="action-card-item"
+            onclick="alert('Exploring heritage points & culture.')"
+          >
+
+            <div class="action-card-left">
+
+              <div class="icon-avatar avatar-coral">
+
+                <i class="ph-fill ph-bank"></i>
+
+              </div>
+
+
+              <div class="action-card-text">
+
+                <h4>
+                  Discover Places
+                </h4>
+
+                <p>
+                  History, culture & stories
+                </p>
+
+              </div>
+
+            </div>
+
+
+            <i class="ph-bold ph-caret-right chevron-icon"></i>
+
+          </div>
+
+
+          <!-- Reviews -->
+
+          <div
+            class="action-card-item"
+            onclick="alert('Opening Community Traveler Reviews')"
+          >
+
+            <div class="action-card-left">
+
+              <div class="icon-avatar avatar-amber">
+
+                <i class="ph-fill ph-star"></i>
+
+              </div>
+
+
+              <div class="action-card-text">
+
+                <h4>
+                  Traveller Reviews
+                </h4>
+
+                <p>
+                  Read & share experiences
+                </p>
+
+              </div>
+
+            </div>
+
+
+            <i class="ph-bold ph-caret-right chevron-icon"></i>
+
+          </div>
+
+
+        </div>
+
+
+        <!-- Travel Buddy -->
+
+        <div class="travel-buddy-hub">
+
+          <div class="spark-decorative">
+            ✨
+          </div>
+
+          <h3>
+            Find a<br />
+            Travel Buddy
+          </h3>
+
+          <p>
+            Travel together, create memories!
+          </p>
+
+
+          <button
+            class="btn-buddy-action"
+            onclick="alert('Connecting with solo travelers near your route...')"
+          >
+
+            Explore Buddies
+
+            <i class="ph-bold ph-caret-right"></i>
+
+          </button>
+
+
+          <div class="exact-3d-character">
+
+            <!-- Existing character -->
+
+            <svg
+              viewBox="0 0 180 260"
+              width="100%"
+              height="100%"
+            >
+
+              <defs>
+
+                <radialGradient
+                  id="faceGrad"
+                  cx="45%"
+                  cy="40%"
+                  r="55%"
+                >
+
+                  <stop
+                    offset="0%"
+                    stop-color="#fed7aa"
+                  />
+
+                  <stop
+                    offset="100%"
+                    stop-color="#fba863"
+                  />
+
+                </radialGradient>
+
+
+                <radialGradient
+                  id="capGrad"
+                  cx="35%"
+                  cy="30%"
+                  r="65%"
+                >
+
+                  <stop
+                    offset="0%"
+                    stop-color="#ff4b55"
+                  />
+
+                  <stop
+                    offset="100%"
+                    stop-color="#cc121e"
+                  />
+
+                </radialGradient>
+
+
+                <radialGradient
+                  id="shirtGrad"
+                  cx="40%"
+                  cy="35%"
+                  r="65%"
+                >
+
+                  <stop
+                    offset="0%"
+                    stop-color="#fed234"
+                  />
+
+                  <stop
+                    offset="100%"
+                    stop-color="#df9a04"
+                  />
+
+                </radialGradient>
+
+
+                <radialGradient
+                  id="shortsGrad"
+                  cx="40%"
+                  cy="35%"
+                  r="65%"
+                >
+
+                  <stop
+                    offset="0%"
+                    stop-color="#3b82f6"
+                  />
+
+                  <stop
+                    offset="100%"
+                    stop-color="#1d4ed8"
+                  />
+
+                </radialGradient>
+
+
+                <radialGradient
+                  id="bagGrad"
+                  cx="40%"
+                  cy="40%"
+                  r="60%"
+                >
+
+                  <stop
+                    offset="0%"
+                    stop-color="#b45309"
+                  />
+
+                  <stop
+                    offset="100%"
+                    stop-color="#78350f"
+                  />
+
+                </radialGradient>
+
+
+                <filter
+                  id="softDrop"
+                  x="-10%"
+                  y="-10%"
+                  width="130%"
+                  height="130%"
+                >
+
+                  <feDropShadow
+                    dx="-2"
+                    dy="4"
+                    stdDeviation="3"
+                    flood-opacity="0.25"
+                  />
+
+                </filter>
+
+              </defs>
+
+
+              <g filter="url(#softDrop)">
+
+                <rect
+                  x="35"
+                  y="100"
+                  width="38"
+                  height="75"
+                  rx="14"
+                  fill="url(#bagGrad)"
+                />
+
+                <rect
+                  x="38"
+                  y="94"
+                  width="32"
+                  height="15"
+                  rx="7"
+                  fill="#92400e"
+                />
+
+              </g>
+
+
+              <rect
+                x="74"
+                y="185"
+                width="14"
+                height="36"
+                rx="6"
+                fill="#fed7aa"
+              />
+
+              <rect
+                x="102"
+                y="185"
+                width="14"
+                height="36"
+                rx="6"
+                fill="#fed7aa"
+              />
+
+
+              <rect
+                x="73"
+                y="212"
+                width="16"
+                height="8"
+                rx="3"
+                fill="#ffffff"
+              />
+
+              <rect
+                x="101"
+                y="212"
+                width="16"
+                height="8"
+                rx="3"
+                fill="#ffffff"
+              />
+
+
+              <ellipse
+                cx="78"
+                cy="225"
+                rx="14"
+                ry="7"
+                fill="#dc2626"
+              />
+
+              <ellipse
+                cx="112"
+                cy="225"
+                rx="14"
+                ry="7"
+                fill="#dc2626"
+              />
+
+
+              <path
+                d="M68,155 L122,155 L126,192 L100,192 L95,170 L90,170 L85,192 L64,192 Z"
+                fill="url(#shortsGrad)"
+                filter="url(#softDrop)"
+              />
+
+
+              <path
+                d="M66,104 C66,95 124,95 124,104 L127,156 L63,156 Z"
+                fill="url(#shirtGrad)"
+                filter="url(#softDrop)"
+              />
+
+
+              <path
+                d="M124,106 Q145,125 140,150"
+                fill="none"
+                stroke="#fed7aa"
+                stroke-width="12"
+                stroke-linecap="round"
+              />
+
+
+              <path
+                d="M66,106 Q52,125 56,150"
+                fill="none"
+                stroke="#fed7aa"
+                stroke-width="12"
+                stroke-linecap="round"
+              />
+
+
+              <circle
+                cx="95"
+                cy="65"
+                r="26"
+                fill="url(#faceGrad)"
+                filter="url(#softDrop)"
+              />
+
+
+              <ellipse
+                cx="86"
+                cy="64"
+                rx="3.5"
+                ry="5"
+                fill="#1e293b"
+              />
+
+              <ellipse
+                cx="104"
+                cy="64"
+                rx="3.5"
+                ry="5"
+                fill="#1e293b"
+              />
+
+
+              <path
+                d="M89,73 Q95,81 101,73"
+                fill="none"
+                stroke="#881337"
+                stroke-width="2.2"
+                stroke-linecap="round"
+              />
+
+
+              <path
+                d="M70,50 C70,28 120,28 120,50 Z"
+                fill="url(#capGrad)"
+                filter="url(#softDrop)"
+              />
+
+              <ellipse
+                cx="95"
+                cy="49"
+                rx="28"
+                ry="7"
+                fill="#ef4444"
+              />
+
+            </svg>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- DSA COURSE PROJECT: ROUTE OPTIMIZER -->
+      <section class="dsa-route-card" aria-labelledby="dsaRouteTitle">
+        <div class="dsa-card-heading"><div><span class="dsa-kicker">DSA PROJECT FEATURE</span><h3 id="dsaRouteTitle">Smart Route Optimizer</h3><p>Find a low-distance route using graph algorithms.</p></div><div class="dsa-algo-badge">Dijkstra</div></div>
+        <div class="dsa-route-inputs">
+          <label>From<select id="routeFrom"><option>Raipur</option><option>Bhilai</option><option>Durg</option><option>Jagdalpur</option><option>Mainpat</option><option>Amarkantak</option></select></label>
+          <label>To<select id="routeTo"><option>Jagdalpur</option><option>Raipur</option><option>Bhilai</option><option>Durg</option><option>Mainpat</option><option>Amarkantak</option></select></label>
+        </div>
+        <button type="button" class="dsa-route-button" onclick="findShortestRoute()">Find shortest route <i class="ph-bold ph-arrows-left-right"></i></button>
+        <div id="routeResult" class="dsa-route-result" aria-live="polite">Select two places and calculate a sample route.</div>
+        <div class="dsa-recent-box"><div class="dsa-recent-heading"><strong>Recent destination searches</strong><span>Stack (LIFO)</span></div><div id="recentSearches" class="dsa-recent-list">No searches yet.</div></div>
+        <p class="dsa-note">Course demo: route distances are sample data, not live navigation estimates.</p>
+      </section>
+
+      <!-- Active Trip -->
+
+      <div class="active-trip-tile">
+
+        <div class="trip-tile-top">
+
+          <div class="trip-meta-left">
+
+            <div class="suitcase-icon-box">
+
+              <i class="ph-fill ph-suitcase-simple"></i>
+
+            </div>
+
+
+            <div>
+
+              <span class="trip-headline-badge">
+                Your Active Trip
+              </span>
+
+              <div class="trip-destinations">
+                Raipur → Jagdalpur
+              </div>
+
+              <div class="trip-substatus">
+                Day 2 of 3
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="trip-weather-side">
+
+            <span class="temperature">
+              28°C
+            </span>
+
+            <span class="safety-indicator-text">
+
+              <i class="ph-fill ph-check-circle"></i>
+
+              Route Clear
+
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <button
+          class="btn-view-trip-details"
+          onclick="alert('Fetching Active Route Itinerary...')"
+        >
+
+          View Trip Details
+
+          <i class="ph-bold ph-caret-down"></i>
+
+        </button>
+
+      </div>
+
+
+      <!-- Explore -->
+
+      <div class="explore-header-container">
+
+        <span class="section-label no-pad">
+          EXPLORE NEAR YOUR ROUTE
+        </span>
+
+        <a
+          href="javascript:void(0)"
+          class="view-all-link"
+        >
+          View all →
+        </a>
+
+      </div>
+
+
+      <div class="cards-horizontal-strip">
+
+
+        <div class="place-preview-card">
+
+          <img
+            src="https://images.unsplash.com/photo-1599661046289-e31897846e41?w=300&q=80"
+            alt="Amber Fort"
+          />
+
+          <div class="place-preview-body">
+
+            <h5>
+              Amber Fort
+            </h5>
+
+            <span class="rating">
+              ★ 4.7 • 12 km
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <div class="place-preview-card">
+
+          <img
+            src="https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?w=300&q=80"
+            alt="Chitrakote Falls"
+          />
+
+          <div class="place-preview-body">
+
+            <h5>
+              Chitrakote Falls
+            </h5>
+
+            <span class="rating">
+              ★ 4.6 • 18 km
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <div class="place-preview-card">
+
+          <img
+            src="https://images.unsplash.com/photo-1590050752117-238cb0fb12b1?w=300&q=80"
+            alt="Bamleshwari Temple"
+          />
+
+          <div class="place-preview-body">
+
+            <h5>
+              Bamleshwari
+            </h5>
+
+            <span class="rating">
+              ★ 4.8 • 22 km
+            </span>
+
+          </div>
+
+        </div>
+
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= BOOKINGS MODAL ================= -->
+
+    <div
+      id="bookingModal"
+      class="booking-modal"
+    >
+
+      <div class="booking-modal-card">
+
+
+        <!-- Header -->
+
+        <div class="booking-modal-header">
+
+          <div>
+
+            <span class="booking-kicker">
+              SMART TRAVEL
+            </span>
+
+            <h2>
+              Book your journey
+            </h2>
+
+            <p>
+              Travel, stay and explore from one place.
+            </p>
+
+          </div>
+
+
+          <button
+            class="booking-close-btn"
+            onclick="closeBookings()"
+          >
+
+            <i class="ph-bold ph-x"></i>
+
+          </button>
+
+        </div>
+
+
+        <!-- Services -->
+
+        <div class="booking-service-grid">
+
+
+          <button
+            class="booking-service-card selected"
+            data-service="Train"
+            onclick="selectBookingService(this)"
+          >
+
+            <div class="booking-service-icon train">
+
+              <i class="ph-fill ph-train"></i>
+
+            </div>
+
+            <strong>
+              Train
+            </strong>
+
+            <small>
+              Rail tickets
+            </small>
+
+          </button>
+
+
+          <button
+            class="booking-service-card"
+            data-service="Flight"
+            onclick="selectBookingService(this)"
+          >
+
+            <div class="booking-service-icon flight">
+
+              <i class="ph-fill ph-airplane"></i>
+
+            </div>
+
+            <strong>
+              Flight
+            </strong>
+
+            <small>
+              Air tickets
+            </small>
+
+          </button>
+
+
+          <button
+            class="booking-service-card"
+            data-service="Bus"
+            onclick="selectBookingService(this)"
+          >
+
+            <div class="booking-service-icon bus">
+
+              <i class="ph-fill ph-bus"></i>
+
+            </div>
+
+            <strong>
+              Bus
+            </strong>
+
+            <small>
+              Bus tickets
+            </small>
+
+          </button>
+
+
+          <button
+            class="booking-service-card"
+            data-service="Vehicle"
+            onclick="selectBookingService(this)"
+          >
+
+            <div class="booking-service-icon vehicle">
+
+              <i class="ph-fill ph-car"></i>
+
+            </div>
+
+            <strong>
+              Vehicle
+            </strong>
+
+            <small>
+              Rent a vehicle
+            </small>
+
+          </button>
+
+
+          <button
+            class="booking-service-card"
+            data-service="Hotel"
+            onclick="selectBookingService(this)"
+          >
+
+            <div class="booking-service-icon hotel">
+
+              <i class="ph-fill ph-bed"></i>
+
+            </div>
+
+            <strong>
+              Hotel
+            </strong>
+
+            <small>
+              Stay & rooms
+            </small>
+
+          </button>
+
+
+          <button
+            class="booking-service-card"
+            data-service="Activity"
+            onclick="selectBookingService(this)"
+          >
+
+            <div class="booking-service-icon activity">
+
+              <i class="ph-fill ph-map-trifold"></i>
+
+            </div>
+
+            <strong>
+              Activities
+            </strong>
+
+            <small>
+              Explore & enjoy
+            </small>
+
+          </button>
+
+
+        </div>
+
+
+        <!-- Booking Form -->
+
+        <form
+          class="booking-form"
+          onsubmit="searchBookings(event)"
+        >
+
+
+          <div class="booking-input-row">
+
+
+            <label>
+
+              <span>
+                From
+              </span>
+
+              <input
+                type="text"
+                id="bookingFrom"
+                placeholder="e.g. Raipur"
+                required
+              />
+
+            </label>
+
+
+            <label>
+
+              <span>
+                To
+              </span>
+
+              <input
+                type="text"
+                id="bookingTo"
+                placeholder="e.g. Delhi"
+                required
+              />
+
+            </label>
+
+
+          </div>
+
+
+          <div class="booking-input-row">
+
+
+            <label>
+
+              <span>
+                Travel Date
+              </span>
+
+              <input
+                type="date"
+                id="bookingDate"
+                required
+              />
+
+            </label>
+
+
+            <label>
+
+              <span>
+                Travellers
+              </span>
+
+              <select
+                id="bookingTravellers"
+              >
+
+                <option>
+                  1 Traveller
+                </option>
+
+                <option>
+                  2 Travellers
+                </option>
+
+                <option>
+                  3 Travellers
+                </option>
+
+                <option>
+                  4 Travellers
+                </option>
+
+                <option>
+                  5+ Travellers
+                </option>
+
+              </select>
+
+            </label>
+
+
+          </div>
+
+
+          <button
+            type="submit"
+            class="booking-search-btn"
+          >
+
+            <i class="ph-bold ph-magnifying-glass"></i>
+
+            Search & Continue
+
+          </button>
+
+
+          <!-- Search Result -->
+
+          <div
+            id="bookingResult"
+            class="booking-result"
+          ></div>
+
+
+        </form>
+
+
+      </div>
+
+    </div>
+
+
+    <!-- Bottom Navigation -->
+
+    <nav class="dock-navigation-bar">
+
+
+      <div
+        class="dock-item active"
+        onclick="openHome()"
+      >
+
+        <i class="ph-fill ph-house"></i>
+
+        <span>
+          Home
+        </span>
+
+      </div>
+
+
+      <div
+        class="dock-item"
+        onclick="openBookings()"
+      >
+
+        <i class="ph-bold ph-ticket"></i>
+
+        <span>
+          Bookings
+        </span>
+
+      </div>
+
+
+      <div
+        class="dock-item"
+        onclick="alert('Interactive Map')"
+      >
+
+        <i class="ph-bold ph-compass"></i>
+
+        <span>
+          Explore
+        </span>
+
+      </div>
+
+
+      <div
+        class="dock-item"
+        onclick="alert('Reviews Section')"
+      >
+
+        <i class="ph-bold ph-star"></i>
+
+        <span>
+          Reviews
+        </span>
+
+      </div>
+
+
+      <div
+        class="dock-item"
+        onclick="openLogin()"
+      >
+
+        <i class="ph-bold ph-user-circle"></i>
+
+        <span>
+          Profile
+        </span>
+
+      </div>
+
+
+    </nav>
+
+
+  </div>
+
+
+  <!-- JavaScript -->
+  <script src="script.js"></script>
+
+</body>
+</html>
